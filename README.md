@@ -1,55 +1,37 @@
+# Trust & Fraud Detection in SIoT Using GCN 
 
-# Project Title
+This project implements a **Graph Convolutional Network (GCN)** to detect fraudulent activities in Social Internet of Things (SIoT). The solution leverages **PyTorch Geometric (PyG)** to build a Relational Graph Convolutional Network (RGCN), visualizes the graph structure, and predicts binary outcomes (fraud or trust) for nodes in the graph.
 
-## Description
+---
 
-Provide a brief description of your project here. Include what the project does and why it's useful.
+## Project Structure
 
-## Features
+### Data Files
+The project uses three main data files:
+- `userid-table 1.csv`: Contains user-related features.
+- `userid-table 221104.csv`: Includes additional user feature data.
+- `users_relation 3.csv`: Contains user-to-user relationship data.
 
-- Feature 1
-- Feature 2
-- Feature 3
+### Graph Construction
+1. **Node Features**: User-related features (e.g., `lam1000`, `lam3000`, `lam5000`, `efficiency_x`) are normalized and used as node attributes.
+2. **Edge Features**:
+   - **User-to-User Relationships**: Represented by edges and weighted by `relation` scores.
+   - **User-to-Service Relationships**: Generated based on service interactions (e.g., `serviceid` values).
+3. **Graph Object**: Combines nodes, edges, and attributes using PyTorch Geometric's `Data` object.
 
-## Installation
+---
 
-Follow these steps to set up your project:
+## Key Components
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/your-project.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd your-project
-   ```
-3. Install the necessary dependencies:
-   ```bash
-   npm install
-   ```
-4. Run the project:
-   ```bash
-   npm start
-   ```
+### Dependencies
+The project requires the following libraries:
+- Python (3.8+)
+- [PyTorch](https://pytorch.org/) (with CUDA for GPU support)
+- [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/)
+- Pandas, NumPy
+- Plotly (for visualization)
+- Matplotlib (for loss and accuracy plots)
 
-## Usage
-
-Explain how to use the project after installation, including any necessary commands or instructions for running the app.
-
-## Contributing
-
-If you'd like to contribute to this project, follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgements
-
-- Mention any resources, libraries, or contributors that helped in your project.
+Install dependencies:
+```bash
+pip install torch torch-geometric pandas numpy plotly matplotlib
